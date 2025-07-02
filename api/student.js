@@ -38,6 +38,19 @@ router.post("/", async (req, res) => {
 	}
 });
 
+//Delete student
+router.delete("/:id", async (req, res) => {
+	try{
+		const studentID = Number(req.params.id);
+		const deleteStu = await Students.destroy({
+			where: {id : studentID}
+		});
+		res.json({message: `${studentID} deleted`});
+	} catch (error) {
+		res.status(500).json({ error: "Failed to delete student" });
+	}
+});
+
 
 
 module.exports = router;
