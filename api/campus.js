@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Campus } = require("../database");
+const { Campus, Students } = require("../database");
 
 
       //async for await

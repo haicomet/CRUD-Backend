@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {Students} = require("../database");
+const {Students, campus} = require("../database");
 
 // GET all students
 router.get("/", async (req, res) => {
@@ -32,7 +32,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
 	try{
 		const student = await Students.create(req.body);
-		res.status(200).send(student);
+		res.status(201).send(student);
 	} catch (error) {
 		res.status(500).json({ error: "Failed to create student" });
 	}
