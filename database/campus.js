@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 const db = require("./db");
 
 // You porbably don't need a Duck model, this is just for demonstration purposes
-const campus = db.define("campus", {
+const campus = db.define("CAMPUS", {
   campusName: {
     type: DataTypes.STRING,
     allowNull : false,
@@ -10,17 +10,17 @@ const campus = db.define("campus", {
   },
 
   imageUrl: {
-    type: DateTypes.STRING,
+    type: DataTypes.STRING,
     defaultValue: "default-image",
 
   },
-  adress: {
-    type: DateTypes.STRING,
+  address: {
+    type: DataTypes.STRING,
     allowNull: false,
 
   },
 description: {
-    type: DateTypes.TEXT('long'),
+    type: DataTypes.TEXT('long'),
     allowNull: false,
 
   },
