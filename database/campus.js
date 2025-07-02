@@ -10,17 +10,17 @@ const campus = db.define("CAMPUS", {
   },
 
   imageUrl: {
-    type: DateTypes.STRING,
+    type: DataTypes.STRING,
     defaultValue: "default-image",
 
   },
-  adress: {
-    type: DateTypes.STRING,
+  address: {
+    type: DataTypes.STRING,
     allowNull: false,
 
   },
 description: {
-    type: DateTypes.TEXT('long'),
+    type: DataTypes.TEXT('long'),
     allowNull: false,
 
   },
