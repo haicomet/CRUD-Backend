@@ -4,4 +4,10 @@ const router = express.Router();
 
 //router.use("/ducks", ducksRouter);
 
+const studentRoutes = require("./student");
+router.use("/students", studentRoutes);
+
+const campusRoutes = require("./campus");
+router.use("/campus", campusRoutes);
+
 module.exports = router;
