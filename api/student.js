@@ -26,7 +26,18 @@ router.get("/:id", async (req, res) => {
 	} catch (error) {
 		res.status(500).json({ error: "Failed to fetch student" });
 	}
-})
+});
+
+//Create new student
+router.post("/", async (req, res) => {
+	try{
+		const student = await Students.create(req.body);
+		res.status(200).send(student);
+	} catch (error) {
+		res.status(500).json({ error: "Failed to create student" });
+	}
+});
+
 
 
 module.exports = router;
