@@ -13,3 +13,14 @@ const db = new Sequelize(
 );
 
 module.exports = db;
+db.authenticate()
+  .then(() => {
+    console.log("✅ Connected to DB!");
+    console.log("📦 Database name:", db.config.database);
+    console.log("👤 DB user:", db.config.username);
+    console.log("🖥️ Host:", db.config.host);
+    console.log("🛠️ Dialect:", db.getDialect());
+  })
+  .catch((err) => {
+    console.error("❌ Unable to connect to DB:", err);
+  });
