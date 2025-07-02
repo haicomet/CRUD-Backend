@@ -39,7 +39,6 @@ router.post("/", async (req, res) => {
 		  image,
 		  gpa: parseFloat(gpa)
 		});
-		console.log("✅ Created student:", student.toJSON());
 		res.status(201).send(student);
 	} catch (error) {
 		res.status(500).json({ error: "Failed to create student" });
