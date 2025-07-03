@@ -31,12 +31,12 @@ router.get("/:id", async (req, res) => {
 //Create new student
 router.post("/", async (req, res) => {
 	try{
-		const { firstName, lastName, email, image, gpa } = req.body;
+		const { firstName, lastName, email, imageUrl, gpa } = req.body;
 		const student = await Students.create({
 		  firstName,
 		  lastName,
 		  email,
-		  image,
+		  imageUrl,
 		  gpa: parseFloat(gpa)
 		});
 		res.status(201).send(student);
