@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
 		  lastName,
 		  email,
 		  imageUrl,
-		  gpa: parseFloat(gpa)
+		  gpa: gpa ? parseFloat(gpa) : null,
 		});
 		res.status(201).send(student);
 	} catch (error) {
