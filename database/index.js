@@ -3,8 +3,8 @@ const db = require("./db");
 const Students = require("./students");
 const campus = require("./campus");
 
-campus.hasMany(Students);
-Students.hasOne(campus);
+campus.hasMany(Students, {foreignKey: `campusId`});
+Students.belongsTo(campus, {foreignKey: `campusId`});
 
 module.exports = {
   db,
