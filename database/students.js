@@ -27,7 +27,14 @@ const Students = db.define("students", {
             min: 0.0,
             max: 4.0
         }
-    }
+    },
+    campusId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "CAMPUS",
+          key: "id"
+        }
+      }
 });
 
 module.exports = Students;
