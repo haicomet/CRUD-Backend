@@ -5,7 +5,9 @@ const {Students, Campus} = require("../database");
 // GET all students
 router.get("/", async (req, res) => {
 	try{
-		const students = await Students.findAll();
+		const students = await Students.findAll({
+			include: campus,
+		});
 		res.send(students);
 	} catch (error) {
 		res.status(500).json({ error: "Failed to fetch students" });
@@ -31,13 +33,14 @@ router.get("/:id", async (req, res) => {
 //Create new student
 router.post("/", async (req, res) => {
 	try{
-		const { firstName, lastName, email, imageUrl, gpa } = req.body;
+		const { firstName, lastName, email, imageUrl, gpa, campusId } = req.body;
 		const student = await Students.create({
 		  firstName,
 		  lastName,
 		  email,
 		  imageUrl,
-		  gpa: parseFloat(gpa)
+		  gpa: gpa ? parseFloat(gpa) : null,
+		  campusId
 		});
 		res.status(201).send(student);
 	} catch (error) {
