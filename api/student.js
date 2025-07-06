@@ -6,7 +6,7 @@ const {Students, Campus} = require("../database");
 router.get("/", async (req, res) => {
 	try{
 		const students = await Students.findAll({
-			include: campus,
+			include: Campus,
 		});
 		res.send(students);
 	} catch (error) {
