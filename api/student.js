@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {Students, campus} = require("../database");
+const {Students, Campus} = require("../database");
 
 // GET all students
 router.get("/", async (req, res) => {
@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
 	try{
 		const student = await Students.findByPk(req.params.id, {
-			include: campus,
+			include: Campus,
 		});
 		if (!student){
 			res.status(404).json({ error: "Student not found" });
